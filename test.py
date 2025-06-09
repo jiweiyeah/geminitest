@@ -21,7 +21,7 @@ genai.configure(api_key='AIzaSyDFNnDMZXXAFkSgtw86RcafPrquJjNYAks')  # 请替换�
 # --- 文件路径定义 ---
 file_path = '.'  # 默认为当前目录，根据实际情况修改
 _UPSTREAM_FILE_PATH = file_path + '/upstream_crime_types.md'
-INPUT_EXCEL_PATH = file_path + '/textExcel.xlsx'
+INPUT_EXCEL_PATH = file_path + '/textExcel50.xlsx'
 OUTPUT_EXCEL_PATH = file_path + '/output.xlsx'
 
 # Excel列配置
@@ -29,7 +29,7 @@ DOCUMENT_COLUMN_INDEX = 1  # B列对应的索引是1 (A列是0)
 DOCUMENT_COLUMN_NAME = '文书内容'
 
 # 并发和重试设置
-CONCURRENT_LIMIT = 5
+CONCURRENT_LIMIT = 50
 MAX_RETRIES = 3
 RETRY_BACKOFF_FACTOR = 2
 
@@ -155,7 +155,7 @@ def main():
     # 初始化模型
     system_prompt = "你是一个专业的法律文件分析助手。你的任务是根据用户需求提取文档信息，并以纯JSON，其中字段是中文的形式列出。不要添加任何无关的评论或解释，确保输出仅包含JSON内容。"
     model = genai.GenerativeModel(
-        model_name='gemini-2.5-flash-preview-05-20',
+        model_name='gemini-2.5-pro-preview-06-05',
         system_instruction=system_prompt
     )
     
